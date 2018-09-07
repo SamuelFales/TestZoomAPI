@@ -1,0 +1,55 @@
+﻿@model TestApiZoom.Models.Meeting
+@{
+    ViewData["Title"] = "Home Page";
+}
+<br />
+<div>
+    @using (Html.BeginForm("Create", "Meeting", FormMethod.Post))
+    {
+        <span>Meeting topic:</span>
+        <br />
+        <br />
+        @Html.TextBox("topic")
+        <input type="submit" value="Criar Reunião" class="btn btn-primary" />
+    }
+    <br />
+    <br />
+    @if (Model != null)
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("Topic:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.topic)
+            </dd>
+
+            <dt>
+                @Html.Label("Time:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.start_time)
+
+            </dd>
+
+            <dt>
+                @Html.Label("Start URL:")
+            </dt>
+
+            <dd>
+                <a href=@Model.start_url target="_blank">Start</a>
+            </dd>
+
+            <dt>
+                @Html.Label("Join URL:")
+            </dt>
+
+            <dd>
+                <a href=@Model.join_url target="_blank">Join</a>
+            </dd>
+
+        </dl>
+    }
+</div>
